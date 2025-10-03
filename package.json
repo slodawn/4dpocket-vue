@@ -6,17 +6,30 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "lint": "eslint . --ext .vue,.js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,vue,json,css,scss,md}\""
   },
   "dependencies": {
     "vue": "^3.5.22"
   },
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@types/node": "^24.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
+    "eslint": "^9.15.0",
+    "eslint-plugin-vue": "^9.31.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "sass": "^1.83.4",
     "typescript": "~5.9.3",
     "vite": "^7.1.7",
+    "vue-eslint-parser": "^9.4.3",
     "vue-tsc": "^3.1.0"
   }
 }
