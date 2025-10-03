@@ -2,10 +2,19 @@ import js from '@eslint/js'
 import pluginVue from 'eslint-plugin-vue'
 import * as parserVue from 'vue-eslint-parser'
 import * as parserTypeScript from '@typescript-eslint/parser'
+import pluginTypeScript from '@typescript-eslint/eslint-plugin'
 
 export default [
   js.configs.recommended,
   ...pluginVue.configs['flat/recommended'],
+  {
+    files: ['*.config.js', '*.config.ts'],
+    languageOptions: {
+      globals: {
+        process: 'readonly',
+      },
+    },
+  },
   {
     files: ['**/*.vue', '**/*.ts', '**/*.tsx'],
     languageOptions: {
@@ -15,6 +24,12 @@ export default [
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
+      globals: {
+        process: 'readonly',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': pluginTypeScript,
     },
     rules: {
       // Vue rules
